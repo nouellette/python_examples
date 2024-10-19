@@ -8,13 +8,16 @@ class Queue:
     def dequeue(self):
         if self.is_empty():
             raise IndexError("Dequeue from empty queue")
-        return self.queue.pop(0)
+        return self.queue.pop()
 
     def is_empty(self):
         return len(self.queue) == 0
 
     def size(self):
         return len(self.queue)
+
+    def get(self):
+        return self.queue
 
 
 class Node:
@@ -56,8 +59,8 @@ class LinkedListQueue:
         return count
 
 
-queue = LinkedListQueue()
+queue = Queue()
 queue.enqueue(1)
-queue.enqueue(1)
+queue.enqueue(2)
 queue.dequeue()
-print(queue.size())
+print(queue.get())
